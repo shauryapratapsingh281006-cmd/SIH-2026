@@ -598,6 +598,8 @@ into one connected workflow.
 **Project:** Pixelway  
 **Event:** Smart India Hackathon 2026  
 **Problem Statement:** Intelligent Identification of Hazard-Based Red Zones, Carrying Capacity Assessment, and Immediate Relocation Needs for Vulnerable Habitations
+**Problem Statement ID:** `SIH26191`
+**Team ID:** `155956`
 
 ---
 
