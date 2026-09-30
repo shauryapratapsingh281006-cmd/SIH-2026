@@ -5,7 +5,8 @@
 **Team Name:** Pixel01  
 **Solution Name:** Pixelway  
 **Problem Statement:** Intelligent Identification of Hazard-Based Red Zones, Carrying Capacity Assessment, and Immediate Relocation Needs for Vulnerable Habitations  
-**Problem Statement ID:** `[INSERT SIH PROBLEM STATEMENT ID]`
+**Problem Statement ID:** `SIH26191`
+**Team ID:** `155956`
 
 ---
 
