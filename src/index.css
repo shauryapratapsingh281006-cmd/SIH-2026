@@ -292,3 +292,158 @@ body {
 .animate-data-flow {
   animation: dataFlow 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+
+/* =========================================================
+   PIXELWAY PREMIUM POLISH
+   Preserves the original visual language while adding:
+   - richer depth
+   - refined glass surfaces
+   - subtle atmospheric lighting
+   - stronger typography hierarchy
+   - premium focus/hover states
+   ========================================================= */
+
+:root {
+  --pw-glow-blue: rgba(59, 130, 246, .22);
+  --pw-glow-cyan: rgba(6, 182, 212, .14);
+  --pw-border: rgba(148, 163, 184, .13);
+  --pw-surface: rgba(9, 15, 28, .78);
+}
+
+body {
+  background:
+    radial-gradient(900px 500px at 12% -5%, rgba(37, 99, 235, .10), transparent 65%),
+    radial-gradient(700px 450px at 88% 4%, rgba(6, 182, 212, .055), transparent 68%),
+    #050812;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+::selection {
+  background: rgba(59,130,246,.35);
+  color: #fff;
+}
+
+button, a, input, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  transition:
+    transform .22s cubic-bezier(.16,1,.3,1),
+    box-shadow .22s cubic-bezier(.16,1,.3,1),
+    border-color .22s ease,
+    background-color .22s ease,
+    color .22s ease;
+}
+
+button:active {
+  transform: scale(.985);
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(59,130,246,.08), 0 0 24px rgba(59,130,246,.06);
+}
+
+.premium-dashboard {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(800px 500px at 70% -10%, rgba(37,99,235,.08), transparent 65%),
+    radial-gradient(600px 400px at 0% 30%, rgba(6,182,212,.035), transparent 70%);
+}
+
+.premium-dashboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.018), transparent 20%),
+    radial-gradient(circle at 50% 0%, rgba(59,130,246,.05), transparent 42%);
+}
+
+.premium-dashboard .app-container {
+  position: relative;
+}
+
+.premium-dashboard header {
+  box-shadow: 0 1px 0 rgba(255,255,255,.04), 0 16px 50px rgba(0,0,0,.18);
+}
+
+.premium-dashboard .app-container > section > div,
+.premium-dashboard main > section > div {
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.025);
+  backdrop-filter: blur(18px);
+}
+
+.premium-dashboard main > section:first-child > div {
+  border-color: rgba(148,163,184,.14);
+}
+
+.premium-dashboard main > section > div:hover {
+  border-color: rgba(96,165,250,.18);
+}
+
+.premium-dashboard h1,
+.premium-dashboard h2 {
+  letter-spacing: -.025em;
+}
+
+.premium-dashboard input {
+  background: rgba(5,8,18,.58) !important;
+  border-color: rgba(148,163,184,.12) !important;
+}
+
+.premium-dashboard input::placeholder {
+  color: #536078;
+}
+
+.premium-dashboard a[href*="google.com/maps"] {
+  transition: all .22s ease;
+}
+
+.premium-dashboard a[href*="google.com/maps"]:hover {
+  border-color: rgba(96,165,250,.35);
+  background: rgba(59,130,246,.08);
+  transform: translateY(-1px);
+}
+
+.premium-dashboard .animate-pulse {
+  box-shadow: 0 0 0 0 rgba(52,211,153,.35);
+}
+
+@keyframes pwGlow {
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+.premium-orb {
+  animation: pwGlow 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

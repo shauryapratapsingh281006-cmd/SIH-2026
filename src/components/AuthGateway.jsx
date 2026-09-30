@@ -2,11 +2,22 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bell, Users, MapPin, Shield, Zap, Mail, Lock, Eye, EyeOff, User } from 'lucide-react';
 
-export default function AuthGateway() {
+export default function AuthGateway({ onLogin }) {
   const [mode, setMode] = useState('individual'); // 'individual' | 'ngo'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    if (!email.trim() || !password.trim()) {
+      setError('Please enter your email and password to continue.');
+      return;
+    }
+    onLogin?.(isNgo ? 'ngo' : 'individual');
+  };
 
   const isNgo = mode === 'ngo';
 
@@ -232,7 +243,7 @@ export default function AuthGateway() {
               </div>
 
               {/* Form Controls */}
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Email Address */}
                 <div>
                   <label className="block text-[11px] font-mono font-semibold uppercase tracking-[0.06em] text-[#8997B2] mb-1.5">
@@ -275,6 +286,12 @@ export default function AuthGateway() {
                   </div>
                 </div>
 
+                {error && (
+                  <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-3 py-2 text-xs text-red-300">
+                    {error}
+                  </div>
+                )}
+
                 {/* Primary Button */}
                 <button
                   type="submit"
@@ -294,6 +311,7 @@ export default function AuthGateway() {
                 {/* Continue with Google */}
                 <button
                   type="button"
+                  onClick={() => onLogin?.(isNgo ? 'ngo' : 'individual')}
                   className="w-full h-[44px] rounded-[10px] bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.10] text-[13.5px] font-medium text-[#E2E8F0] hover:text-white transition-all flex items-center justify-center gap-2.5 cursor-pointer"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4">
